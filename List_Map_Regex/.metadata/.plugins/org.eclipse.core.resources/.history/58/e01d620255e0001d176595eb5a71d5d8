@@ -1,0 +1,49 @@
+package liste;
+
+import java.util.List;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.Vector;
+
+/**
+ * 
+ * @author emma
+ * 
+ * all about Collection (interface) List
+ *
+ */
+
+public class MainList {
+
+	public static void main(String[] args) {
+		
+		/*
+		 * List je interfejs koji "pozajmljuje" metode generičkim klasama 
+		 * ArrayList, LinkedList i Vector
+		 * a sve tri navedene klase koriste se za kreiranje dinamičkih indeksnih nizova
+		 * 
+		 * .add() metod koristi se za dodavanje jedne vrednosti
+		 * (ako joj se prosledi i pozicija, sve ostale vrednosti jednakog ili većeg 
+		 * indeksa pomeraju se na desno (ka kraju) za po jedno mesto)
+		 * 
+		 * .clear() metod koji prazni niz
+		 * 
+		 */
+
+		// ArrayList je najbliža JAVA nizovima jer se sastoji od vrednosti smeštenih 
+		// na uzastopnim lokacijama
+		
+		// kreiranje prazne liste - arrayList
+		List<String> lstr = new ArrayList<String>();
+		
+		//praznu listu treba popuniti
+		//metod .add() koristi se za dodavanje članova u listu.
+		lstr.add("prvi");  // index 0
+		lstr.add("drugi"); // index 1		
+		lstr.add("treci"); // index 3
+		lstr.add(1, "dodatak"); // dodaje se na poziciji (index 1) a 
+		// što rezultuje pomeranjem vrednosti drgi i treći.
+		
+	}
+
+}

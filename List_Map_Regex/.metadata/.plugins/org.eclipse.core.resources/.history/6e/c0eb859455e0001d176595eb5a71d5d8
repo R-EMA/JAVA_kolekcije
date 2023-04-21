@@ -1,0 +1,57 @@
+package liste;
+
+import java.util.List;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.Vector;
+
+/**
+ * 
+ * @author emma
+ * 
+ * all about Collection (interface) List
+ *
+ */
+
+public class MainList {
+
+	public static void main(String[] args) {
+		
+		/*
+		 * List je interfejs koji "pozajmljuje" metode generičkim klasama 
+		 * ArrayList, LinkedList i Vector, a kojima se kreiraju objekti koji se
+		 * sastoje od više vrednosti istog tipa podataka - elementi liste
+		 *
+		 * elementi se mogu dodavati na određenoj poziciji
+		 * elementima se može pristupati na osnovu vrednosti indeksa
+		 * indeksi elemenata su rastućeg redosleda u opsegu od 0 do n-1, gde je n broj elemenata
+		 * 
+		 * metode zajedničke svim klasama koje implementiraju interfejs List najbolje je objasniti kroz primere
+		 * 
+		 * sve liste mogu se štampati print() i println() metodom.
+		 */
+
+		// ArrayList je najbliža JAVA nizovima jer se sastoji od vrednosti smeštenih 
+		// na uzastopnim lokacijama
+		
+		// kreiranje prazne liste - arrayList
+		List<String> lstr = new ArrayList<String>();
+		
+		//praznu listu treba popuniti
+		//metod .add() koristi se za dodavanje članova u listu.
+		lstr.add("prvi");  // index 0
+		lstr.add("drugi"); // index 1		
+		lstr.add("treci"); // index 2
+		System.out.println(lstr);
+		//metodom .add() može se dodati element na tačno određenoj poziciji
+		//ovde je bitno da se indeks tj oznaka pozicije nalazi u rasponu 0 - (n-1)
+		lstr.add(1, "dodatak"); // dodaje se na poziciji (index 1) a 
+		// što rezultuje pomeranjem vrednosti drugi i treći.
+		System.out.println(lstr);
+		
+		// metod .get() čita vrednost sa date pozicije 
+		System.out.println(" prva/poslednja vrednost = " + lstr.get(0) + "/0" + lstr-get(lstr.size()-1));
+		
+	}
+
+}

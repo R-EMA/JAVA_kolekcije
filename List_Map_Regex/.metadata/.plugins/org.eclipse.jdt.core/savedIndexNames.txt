@@ -1,0 +1,4 @@
+INDEX VERSION 1.132+/home/emma/eclipse-workspace/aaaStrucna_praksa/List_Map_Regex/.metadata/.plugins/org.eclipse.jdt.core
+3156862125.index
+1865797976.index
+519306738.index
