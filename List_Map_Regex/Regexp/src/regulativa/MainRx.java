@@ -1,0 +1,50 @@
+package regulativa;
+
+/**
+ * 
+ * @author emma
+ * 
+ * about regexp - (regularni izrazi)
+ *
+ */
+
+public class MainRx {
+
+	public static void main(String[] args) {
+		// regularni izrazi, osnovna primena
+		String reg1 = "M[ia](\\p{L}+)"; //Sve što počinje sa Mi ili Ma
+		// \p{L}+ umesto \w+ za unicode (bilo koji znak)
+		String[] imena = {"Ana", "Maja", "Petar", "Miloš", "Mirko","Menga", "Zara"};
+		
+		for(String i : imena) {
+			if(i.matches(reg1)) {
+				System.out.println(i);
+			}
+		}
+		
+		/*
+		 * regexp se najčešće primenjuje nad stringovima
+		 * str.matches(regexp) - izdvajanje
+		 * str.replaceFirst(regexp, "new value") - zamena prvog pojavljivanja poklapanja
+		 * str.replaceAll(regexp, "new value" - zamena svih pojavljivanja
+		 * str.split(regexp) - deljenje stringa na niz podstringova
+		 * ...
+		 */
+
+	}
+
+}
+
+/*
+ * Regular Expression (regexp) - regularni izraz može da se posmatra kao
+ * superspecijalni String (niska) čija vrednost može da se čita na više načina
+ * sastoji se od 
+ * kvantifikatora (određuje količinu; broj ponavljanja, broj znakova, ...)
+ * kvalifikatora (slova, brojev, specijalni znaci)
+ * modifikatora (koriste se kod ažuriranja, tj. izmena stringa
+ * 
+ * više na
+ * https://www.ucg.ac.me/skladiste/blog_4047/objava_37087/fajlovi/JavaRE.pdf
+ * (jedan od dostupnih sajtova)
+ *
+ */

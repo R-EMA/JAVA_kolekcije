@@ -1,0 +1,145 @@
+package liste;
+
+import java.util.Collections;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.Vector;
+
+/**
+ * 
+ * @author emma
+ * 
+ * all about Collection (interface) List
+ *
+ */
+
+public class MainList {
+
+	public static void main(String[] args) {
+		
+		/*
+		 * List je interfejs koji "pozajmljuje" metode generičkim klasama 
+		 * ArrayList, LinkedList i Vector, a kojima se kreiraju objekti koji se
+		 * sastoje od više vrednosti istog tipa podataka - elementi liste
+		 *
+		 * elementi se mogu dodavati na određenoj poziciji
+		 * elementima se može pristupati na osnovu vrednosti indeksa
+		 * indeksi elemenata su rastućeg redosleda u opsegu od 0 do n-1, gde je n broj elemenata
+		 * 
+		 * metode zajedničke svim klasama koje implementiraju interfejs List najbolje je objasniti kroz primere
+		 * 
+		 * sve liste mogu se štampati print() i println() metodom.
+		 */
+
+		// ArrayList je najbliža JAVA nizovima jer se sastoji od vrednosti smeštenih 
+		// na uzastopnim lokacijama
+		// neefikasna u listama kod kojih se često menja broj elemenata
+		
+		// ArrayList
+		// kreiranje prazne liste - arrayList
+		List<String> lstr = new ArrayList<String>();
+		
+		//praznu listu treba popuniti
+		//metod .add() koristi se za dodavanje članova u listu.
+		lstr.add("prvi");  // index 0
+		lstr.add("drugi"); // index 1		
+		lstr.add("treci"); // index 2
+		System.out.println(lstr);
+		//metodom .add() može se dodati element na tačno određenoj poziciji
+		//ovde je bitno da se indeks tj oznaka pozicije nalazi u rasponu 0 - (n-1)
+		lstr.add(1, "dodatak"); // dodaje se na poziciji (index 1) a 
+		// što rezultuje pomeranjem vrednosti drugi i treći.
+		System.out.println(lstr);
+		
+		// metod .size() vraća dužinu liste (broj trenutnih not-null vrednosti)
+		System.out.println("Broj članova liste: " + lstr.size());
+		
+		// metod .get() čita vrednost sa date pozicije 
+		System.out.println(" prva/poslednja vrednost = " + lstr.get(0) + "/" + lstr.get(lstr.size()-1));
+		
+		// metod ...
+		
+		// LinkedList - povezana lista
+		// sve što važi za ArrayList, važi i za LinedList
+		// razlika: elementi LinkedList liste ne nalaze se na uzastopnim lokacijama, ...
+		// pa se za svaki element čuva vrednost i adresa sledećeg elementa
+		// bolji izbor ako se očekuje česta promena broja elemenata
+		
+		// kreiranje povezane liste 
+		List<String> llstr = new LinkedList<String>();
+		
+		llstr.add("1-jedan");
+		llstr.add("2-dva");	
+		System.out.println(llstr);
+		
+		// metod .addAll(), koji je nasleđen od interfejsa Collection ...
+		// koristi se za dodavanje elemenata iz postojeće (srodne) kolekcije
+		// pri čemu se dodavanje može vršiti ...
+		// na kraj postojeće liste
+		llstr.addAll(lstr);
+		System.out.println(llstr);	
+		// od određene pozicije
+		llstr.addAll(1, lstr); //od prvog indexa (mesto br 2)
+		System.out.println(llstr);
+		// .addAll() može da doda sam sebe
+		llstr.addAll(llstr)	;
+		System.out.println(llstr);
+		
+		// statički metod .shuffle() klase Collections, 
+		// koristi se za "mešanje" elemenata
+		Collections.shuffle(llstr);
+		System.out.println(llstr);
+		
+		// Vector - dinamički niz prvenstveno namenje za rad sa brojevima
+		// ali, podržava i druge tipove podataka
+		// pri kreiranju, može mu se opciono dodeliti inicijalna dužina
+		List<Integer> vlint = new Vector<Integer>(5);
+		vlint.add(1);
+		vlint.add(3);
+		vlint.add(1,2); // indeks (1) mora da bude u opsegu 0-(n-1), n = broj dodatih elemenata vektora
+		System.out.println(vlint);
+		// metod .size() vratiće broj elemenata vektora, a ne vrednost inicijalne dužine
+		System.out.println("Dužina vektora (broj elemenata) = " + vlint.size());
+		
+		//da bi se mogao pročitati kapacitet vektora, on mora biti definisan kao
+		Vector<Integer> vek = new Vector<Integer>(10);
+		vek.add(10);
+		vek.add(30);
+		vek.add(1,20);
+		vek.add(40);
+		vek.add(50);
+		System.out.println(vek);		
+		System.out.println("Vektor: kapacitet VS veličina  = " + vek.capacity() + " vs " + vek.size());
+		
+		//iteracija kroz Liste ... na primeru vektora ... može se izvršiti na više načina
+		//sve liste se mogu pročitati print/println metodima
+		System.out.println(vek);
+		//zahvaljujući implicitnoj konverziji u string
+		System.out.println(vek.toString());
+		// for petlja
+		for(int i=0; i < vek.size(); i++) 
+			System.out.print(vek.get(i) + " ");
+		System.out.println("");
+		// unapređena for petlja ("foreach")
+		for(Integer e : vek)
+			System.out.print(e + " ");
+		System.out.println("");
+	}
+
+}
+
+/*
+ * LIST je interfejs, uređena kolekcija u kojoj se elementi mogu ponavljati.
+ * Strukturno je slična nizovima (array), s tim što je promenljive dužine.
+ * interfej list nasleđuje metode iz Collection interfejsa, 
+ * a na koje dodaje svoje metode bitne za rad sa elementima liste.
+ * 
+ * Nad listama se mogu primeniti i statički metodi klase Collections
+ * (implementira Collection interfejs)
+ * 
+ * Interfejs List implementiraju klase ArrayList, LinkedList i Vector.
+ * 
+ * P.S. Većina metoda za rad sa ArrayList i LinkedList je obrađena na 
+ * predavanjima i vežbama.
+ */

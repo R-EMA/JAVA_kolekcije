@@ -1,0 +1,10 @@
+package regulativa;
+
+public class MainRx {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}
